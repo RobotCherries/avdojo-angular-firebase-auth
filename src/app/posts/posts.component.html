@@ -1,0 +1,55 @@
+<div class="container-fluid mb-3">
+  <h1 class="display-5 mb-3">Posts</h1>
+
+  <ng-container *ngIf="(posts$ | async) as posts">
+    <!-- Cdk Virtual Scroll -->
+    <cdk-virtual-scroll-viewport
+      [itemSize]="paginationConfig.value.itemsPerPage"
+      (scrolledIndexChange)="getMorePosts($event, (posts[posts.length - 1].id))">
+
+      <!-- Posts List -->
+      <ng-container *ngIf="posts.length; then itemList; else emptyListMessage"></ng-container>
+      <ng-template #itemList>
+        <ul class="list-unstyled">
+          <!-- Single Post -->
+          <li class="d-flex mb-3 shadow-sm"
+            *cdkVirtualFor="let post of posts; let i = index; trackBy: trackByIndex">
+            <div class="flex-shrink-0">
+              <img src="https://via.placeholder.com/100" alt="Placeholder image" width="100">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mt-0">{{ post.id }}. {{ post.title | titlecase }}</h5>
+              <p>{{ post.body }}</p>
+            </div>
+          </li>
+        </ul>
+      </ng-template>
+
+    </cdk-virtual-scroll-viewport>
+  </ng-container>
+
+  <!-- Spinner -->
+  <ng-container *ngIf="isPageLoading.value; then spinner"></ng-container>
+  <ng-template #spinner>
+    <div class="text-center">
+      <div class="text-secondary spinner-grow spinner-grow-sm mx-1" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="text-secondary spinner-grow spinner-grow-sm mx-1" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="text-secondary spinner-grow spinner-grow-sm mx-1" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- No items message -->
+  <ng-template #emptyListMessage>
+    <div class="alert alert-light border" role="alert">
+      <strong>No posts yet. ☹</strong>
+    </div>
+  </ng-template>
+</div>
