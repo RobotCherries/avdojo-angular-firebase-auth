@@ -1,5 +1,9 @@
-<div class="container-fluid mb-3">
-  <h1 class="display-5 mb-3">Posts</h1>
+<div class="container-fluid py-2 py-md-4 px-3 px-md-5">
+  <header class="pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <span class="fs-4">Posts</span>
+    </a>
+  </header>
 
   <ng-container *ngIf="(posts$ | async) as posts">
     <!-- Cdk Virtual Scroll -->
