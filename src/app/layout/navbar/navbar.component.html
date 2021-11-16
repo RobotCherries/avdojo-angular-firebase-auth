@@ -19,6 +19,12 @@
           <!-- Step 4: Close the menu when a link is clicked. -->
           <a class="nav-link" routerLink="/posts" (click)="isMenuCollapsed = true">Posts</a>
         </li>
+
+        <!-- TODO: After implementing auth guards, show conditionally when logged in -->
+        <li class="nav-item" routerLinkActive="active" *ngIf="false">
+          <!-- Step 4: Close the menu when a link is clicked. -->
+          <a class="nav-link" routerLink="/dashboard" (click)="isMenuCollapsed = true">Dashboard</a>
+        </li>
       </ul>
     </div>
 

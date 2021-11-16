@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
@@ -22,6 +23,7 @@ import { PostsComponent } from './posts/posts.component';
     MainComponent,
     PageNotFoundComponent,
     PostsComponent,
+    DashboardComponent,
   ],
   imports: [
     // Angular
