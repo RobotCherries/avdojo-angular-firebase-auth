@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'dashboard', component: DashboardComponent, },
-  { path: 'auth', loadChildren: () => import('./core/auth/authentication/authentication.module').then(m => m.AuthenticationModule) },
+  { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
   { path: '**', component: PageNotFoundComponent },
 ];
 

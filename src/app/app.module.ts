@@ -39,11 +39,12 @@ import { PostsComponent } from './posts/posts.component';
     // UI Libraries
     NgbModule,
 
+    // App Routing Modules
+    AppRoutingModule,
+
     // App Modules
     CoreModule,
 
-    // App Routing Modules
-    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
