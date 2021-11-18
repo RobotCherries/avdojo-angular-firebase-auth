@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'dashboard', component: DashboardComponent, },
-  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  { path: 'auth', loadChildren: () => import('./core/auth/authentication/authentication.module').then(m => m.AuthenticationModule) },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
